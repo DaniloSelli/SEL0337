@@ -106,7 +106,7 @@ Para essa parte, foi inicializado no Boot da Raspberry Pi pelo systemd um progra
 
 Esse programa foi chamado pelo **unit file**, um arquivo responsável por colocar o serviço criado à disposição do systemd, ou seja, especificam quais serviços, como devem ser inicializados, e quais são as suas dependências para operar, sendo dividido em três blocos: o primeiro bloco chamado **Unit** é responsável pelas informações do serviço e descrição de suas dependências, onde o comando "Description" entrega essa informação, que será escrita na tela de inicialização do systemd, quando da inicialização da Rasp. O segundo bloco, **Service** consiste nas configurações da execução do serviço que será inicializado: "Type" (forma como os processos/scripts serão executados); "ExecStart" (arquivo que será executado na inicialização); e "ExecStop" (arquivo que será executado ao parar o serviço - opcional) e, por fim, o bloco **Install**,  que descreve o comportamento da inicialização do serviço, onde o "WantedBy" informa ao systemd o grupo alvo no qual o serviço que deverá ser inicializado faz parte. 
 
-Nessa prática, esses parâmetros foram passados ao systemd, via unit file “blinke.service”, para inicializar o blink.py. Além disso, nesse arquivo, o Python também é um serviço que foi chamado/inicializado no unit file, já que o script.py depende dele para execução em razão de suas bibliotecas. 
+Nessa prática, esses parâmetros foram passados ao systemd, via unit file **“blinke.service”**, para inicializar o blink.py. Além disso, nesse arquivo, o Python também é um serviço que foi chamado/inicializado no unit file (através do comando "ExecStart"), já que o script.py depende dele para execução em razão de suas bibliotecas. 
 
 Ademais, o utilitário "systemctl" foi inicializado para testar o serviço, que faz com que o systemd execute o serviço informado em ExecStart no unit file “blinke.service”, além de ser habilitado o serviço durante o Boot do OS. Para finalizar, a Raspberry Pi foi reiniciada, e o processo (acionamento de um LED a partir do pressionamento de um botão) foi inicializado sem a necessidade de uma intervenção manual, como mostrado pelas figuras e o vídeo abaixo.
 <div align="center">
@@ -120,6 +120,12 @@ Ademais, o utilitário "systemctl" foi inicializado para testar o serviço, que 
 Vídeo: [Assistir o vídeo](https://raw.githubusercontent.com/DaniloSelli/SEL0337/main/Docs/VideoInit.mp4)
 
 ## Parte 2
-  
+
+Nessa parte, foram utilizados os sistemas **Git** e **GitHub** para sistemas embarcados. Inicialmente foi criado uma conta no GitHub e um repositório com código da disciplina, onde o projeto foi documentado dentro dele a partir da Raspberry Pi. Para isso, um clone do repositório na Raspberry Pi foi realizado (**git clone**), como o objetivo de configurar o **Git** na mesma. 
+
+Em seguida, através de alguns comandos, os códigos desenvolvidos na parte 1 foram inseridos e adicionados (**git add**), além de serem realizados alguns "commits", que são um ponto de controle no histórico do repositório, contendo as alterações feitas nos arquivos rastreados, com adição de mensagens (**git commit -m “mensagem”**), e "push", utilizado para enviar as atualizações realizadas localmente para o repositório remoto na conta do GitHub (**git push**). 
+
+Além disso, foi criado outro arquivo (**.gitignore**), usado para especificar quais arquivos ou diretórios devem ser ignorados pelo sistema de controle de versão, de forma que os mesmos não são rastreados, adicionais ou incluídos em commits. Nesse arquivo, foi inserido a chave criada, que é necessária para a realização do "push". Por fim, foi executado o comando **git log**, responsável por gerar o histórico de commits, mensagens, e modificações realizadas nas versões dos
+códigos, sendo posteriormente salvo em um arquivo "txt".
 
 [Repositório git](https://github.com/DaniloSelli/SEL0337.git)
