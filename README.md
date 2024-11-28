@@ -70,8 +70,6 @@ O **systemd** é um sistema de inicialização (*init system*) amplamente utiliz
 
 O systemd é especialmente útil em sistemas embarcados e servidores devido à sua eficiência e flexibilidade. Ele modernizou a forma como os sistemas Linux são inicializados e gerenciados, tornando-o uma escolha padrão em várias distribuições.  
 
-Para mais informações, consulte a [documentação oficial do systemd](https://freedesktop.org/wiki/Software/systemd/). 
-
 
 ### Git e GitHub em Sistemas Embarcados  
 
